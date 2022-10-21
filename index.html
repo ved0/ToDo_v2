@@ -4,17 +4,26 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Uppgift 4</title>
+    <title>ToDO v2</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel='stylesheet' type='text/css' media='screen' id="styling" href='main.css'>
 </head>
 
 <body>
     <div class="wrapper">
-        <h1>Simple ToDo</h1>
+        <div class="parent">
+            <div class="changeTheme">
+                <i class="material-symbols-rounded" id="themeIcon">palette</i>
+            </div>
+            <div class="headerID">
+                <h1>Simple ToDo </h1>
+            </div>
+            <div class="darkMode">
+                <i class="material-symbols-rounded" id="darkModeIcon">dark_mode</i><br>
+            </div>
+        </div>
         <div id="inputDiv"><label id="inputField"></label>
             <input type="text" id="task" placeholder="Write a task to do" name="task">
             <button type="button" id="addTask"></button><br>
@@ -22,11 +31,14 @@
         </div>
         <div id="todoList">
             <ul id="taskList"> </ul>
-            <label id="current-counter"></label><br>
-            <label id="counter"></label><br>
+            <div id="test">
+                <label id="current-counter"></label><br>
+                <label id="counter"></label><br>
+            </div>
         </div>
     </div>
     <script src='main.js'></script>
+    <script src="changeThemes.js"></script>
 </body>
 
 </html>

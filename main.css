@@ -1,6 +1,5 @@
 h1 {
     color: blue;
-    width: 445px;
     text-align: center;
     background-color: #eee;
     margin-top: 0px;
@@ -106,25 +105,25 @@ h1 {
     }
 }
 
-
 #counter,
 #current-counter {
     padding-top: 5px;
     color: green;
     background-color: #eee;
-    font-size: 20px;
+    font-size: 18px;
     width: 445px;
     height: 30px;
     text-align: center;
     display: inline-block;
 }
 
-
-ul {
+#taskList {
     padding: 0;
     list-style-type: none;
     margin-bottom: 0px;
     border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    border-top-style: hidden;
 }
 
 i {
@@ -135,7 +134,7 @@ i {
 ul li {
     cursor: pointer;
     position: relative;
-    padding: 12px 8px 12px 40px;
+    padding: 12px 8px 12px 41px;
     background: #eee;
     font-size: 18px;
     width: 396px;
@@ -233,4 +232,44 @@ ul li.checked::before {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
+}
+
+.material-symbols-rounded {
+    cursor: pointer;
+    font-size: 28px;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.darkMode {
+    width: 10%;
+    padding-top: 15px;
+    padding-right: 10px;
+    background-color: #eee;
+    text-align: center;
+    height: 45px;
+}
+
+.changeTheme {
+    width: 10%;
+    padding-top: 15px;
+    position: relative;
+    padding-left: 10px;
+    height: 45px;
+    background-color: #eee;
+}
+
+#newTheme{
+    font-size: 11px;
+}
+
+.headerID {
+    width: 80%;
+}
+
+.parent {
+    display: flex;
 }

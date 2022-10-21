@@ -5,6 +5,7 @@ const list = document.getElementById("taskList");
 const countingLabel = document.getElementById("counter");
 const warningText = document.getElementById("flashingText");
 const currentCounting = document.getElementById("current-counter");
+const themeIcon = document.getElementById("themeIcon");
 const currentCounter = "Done tasks on current list : ";
 const counterText = "All time tasks done : ";
 let counter = 0;
@@ -15,12 +16,10 @@ let taskArray = [];
 let arrayLastPoss = 0;
 let opacity = 0;
 
-
 countingLabel.textContent = counterText + doneTasksCounter;
 button.textContent = "Add task";
 inputLabel.textContent = "Input :";
 currentCounting.textContent = currentCounter + counter;
-
 
 taskInput.addEventListener("keypress", function (ev) {
     if (ev.key === "Enter") {
@@ -48,7 +47,6 @@ list.addEventListener("click", function (ev) {
     }
 }, false);
 
-
 function whenClicked() {
     if (taskInput.value < 1) {
         //  alert("You need to write something first!");
@@ -56,8 +54,6 @@ function whenClicked() {
         setTimeout(function () {
             warningText.style.display = "none";
         }, 6000);
-
-
     } else {
         let input = taskInput.value;
         taskArray[arrayLastPoss] = input;
@@ -65,10 +61,19 @@ function whenClicked() {
         arrayWithEverything[counterOfEverything] = input;
         counterOfEverything++;
         const newTask = document.createElement("li");
-        newTask.appendChild(document.createTextNode(taskInput.value));
         const thrashCan = document.createElement("i");
-        thrashCan.className = "fa-solid fa-trash-can";
+        thrashCan.className = "material-symbols-rounded";
+        thrashCan.textContent = "delete";
         thrashCan.style.float = "right";
+        thrashCan.style.fontSize = "25px";
+        if (currentTheme.getAttribute("href") == "someExperiment.css") {
+            console.log("funkar jag. boken");
+            const tempSpan = document.createElement("span");
+            tempSpan.setAttribute("id", "typed");
+            newTask.appendChild(tempSpan);
+        } else {
+            newTask.appendChild(document.createTextNode(taskInput.value));
+        }
         thrashCan.onclick = function () {
             const index = taskArray.indexOf(newTask.textContent);
             taskArray.splice(index, 1);
@@ -85,9 +90,18 @@ function whenClicked() {
         newTask.appendChild(thrashCan);
         fade(newTask);
         list.appendChild(newTask);
+        if (currentTheme.getAttribute("href") == "someExperiment.css") {
+            const selector = document.querySelectorAll("#typed");
+            const element = selector[selector.length - 1];
+            //  element.innerHTML += typeWriter();
+        //    try {
+                newTask.span.innerHTML = typeWriter();
+         //   } catch (err) {
+         //   }
+        }
         taskInput.value = "";
-        if (taskArray.length > 0) {
-            list.style.borderTop = "2px solid black";
+        if (taskArray.length > 0 && currentTheme.getAttribute("href") != "someExperiment.css") {
+            list.style.borderTopStyle = "solid";
         }
     }
 }
@@ -106,3 +120,16 @@ function fade(element) {
     }, 20);
 }
 
+let i = 0;
+let speed = 50;
+
+function typeWriter() {
+    const selector = document.querySelectorAll("#typed");
+    const element = selector[selector.length - 1];
+    if (i < taskInput.value.length) {
+        console.log(taskInput.value);
+        element.innerHTML += taskInput.value.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
